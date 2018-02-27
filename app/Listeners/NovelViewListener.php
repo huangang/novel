@@ -50,7 +50,7 @@ class NovelViewListener
             $expireWeek = strtotime(date('Y-m-d 23:59:59')) - time() + (7 - $weekday) * 24 * 60 * 60;
         }
 
-        Redis::expire(self::REDIS_KEY_VIEW_MONTH, $expireMonth);
-        Redis::expire(self::REDIS_KEY_VIEW_WEEK, $expireWeek);
+        Redis::expire(config('cache.redis.view_month'), $expireMonth);
+        Redis::expire(config('cache.redis.view_week'), $expireWeek);
     }
 }
