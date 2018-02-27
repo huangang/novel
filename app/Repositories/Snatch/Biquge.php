@@ -178,7 +178,7 @@ Class Biquge extends Snatch implements SnatchInterface
 
     /**
      * 根据链接初始化单个小说
-     * @param $link 小说网址
+     * @param $link string 小说网址
      * @return mixed Novel $novel 返回小说实例
      */
     public function init($link)
@@ -209,6 +209,7 @@ Class Biquge extends Snatch implements SnatchInterface
                     $path = public_path('cover/' . $novel->id . '_cover.' . $cover_ext);
                     //文件不存在时才获取图片
                     if (!file_exists($path)) {
+                        dump($image[1]);
                         $cover = file_get_contents($image[1]);
                         file_put_contents($path, $cover);
                     }
